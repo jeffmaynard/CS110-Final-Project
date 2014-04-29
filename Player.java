@@ -7,20 +7,30 @@ Player Class
 
 public class Player{
    public Deck deck;
+   public String name;
    
    /**
       Default constructor. Creates a player with a deck.
       @param Deck deck A Deck object to be attatched to the particular Player.
+      @param String name The name of the Player.
    */
-   public Player(Deck deck){
+   public Player(Deck deck, String name){
       this.deck = deck;
+      this.name = name;
    }
    /**
-      Returns the Deck of the Player object.
-      @return Deck deck The deck of the Player.
+      Returns the Deck associated with the Player object.
+      @return Deck deck The deck associated with the Player.
    */
    public Deck getPlayerDeck(){
       return deck;
+   }
+   /**
+      Returns the name of the Player.
+      @return String name The name of the Player.
+   */
+   public String getPlayerName(){
+      return name;
    }
    /**
       Sets the Deck of the Player object.
@@ -28,6 +38,13 @@ public class Player{
    */
    public void setPlayerDeck(Deck deck){
       this.deck = deck;
+   }
+   /**
+      Sets the name of the Player object.
+      @param String name The desired name of the Player.
+   */
+   public void setPlayerName(String name){
+      this.name = name;
    }
    /**
       Deals the first card from the Player deck.
