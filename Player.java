@@ -29,10 +29,16 @@ public class Player{
    public void setPlayerDeck(Deck deck){
       this.deck = deck;
    }
-   
+   /**
+   */
    public Card deal(){
       Card c = getPlayerDeck().getDeck().get(0);
       getPlayerDeck().getDeck().remove(0);
       return c;
+   }
+   /**
+   */
+   public void take(Card c){
+      getPlayerDeck().getDeck().add(getPlayerDeck().getDeck().size(), c);
    }
 }

@@ -49,7 +49,7 @@ public class Deck{
    public Deck lastSplit(){
       Deck splitDeck = new Deck();
       splitDeck.getDeck().clear();
-      for(int i = DECK_SPLIT - 1; i < deck.size(); i++){
+      for(int i = DECK_SPLIT; i < deck.size(); i++){
          splitDeck.getDeck().add(deck.get(i));
       }
       return splitDeck;
