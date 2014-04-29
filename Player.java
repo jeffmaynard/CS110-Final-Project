@@ -30,13 +30,20 @@ public class Player{
       this.deck = deck;
    }
    /**
+      Deals the first card from the Player deck.
+      @return Card c The first card from the Player deck.
    */
    public Card deal(){
-      Card c = getPlayerDeck().getDeck().get(0);
-      getPlayerDeck().getDeck().remove(0);
+      Card c = new Card();
+      if((getPlayerDeck().getDeck().isEmpty())==false){
+         c = getPlayerDeck().getDeck().get(0);
+         getPlayerDeck().getDeck().remove(0);
+      }
       return c;
    }
    /**
+      Adds a card to the end of the Player's deck.
+      @param Card c A card to add to the Player's deck.
    */
    public void take(Card c){
       getPlayerDeck().getDeck().add(getPlayerDeck().getDeck().size(), c);

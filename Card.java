@@ -23,6 +23,11 @@ public class Card{
    private int rank;
    
    /**
+      Constructor for creating a blank card for a placeholder.
+   */
+   public Card(){
+   }
+   /**
       Creates a Card object with a suit and rank.
       @param suit The suit of the Card object.
       @param rank The rank of the Card object.
