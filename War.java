@@ -14,12 +14,10 @@ public class War{
    
    
    /**
-      Greets the user and initializes the two Players in the game.
+      Initializes the deck and players.
+      @param String name The desired user Player name.
    */
-   public static void startUp(){
-      System.out.println("New Game!\n----------\n");
-      System.out.print("Enter your name: ");
-      String name = keyboard.next();
+   public static void startUp(String name){
       master = new Deck();
       player1 = new Player(master.firstSplit(), name);
       player2 = new Player(master.lastSplit(), "Computer");
@@ -31,47 +29,28 @@ public class War{
    */
    public static Card playCard(Player player){
       Card c = player.deal();
-      System.out.println(player.getPlayerName() + " played a " + c.toString());
-      keyboard.nextLine();
       return c;
    }
    /**
-      Compares two cards. If the cards are the same a "war" occurs.
+      Compares two cards. Returns the higher of the two. If the cards are the same a "war" occurs.
       @param Card p1 The first card to compare.
       @param Card c1 The second card to compare.
+      @return Card c The higher valued card.
    */
-   public static void compare(Card p1, Card c1){
+   public static Card compare(Card p1, Card c1){
+      Card c = new Card();
       if(p1.getRank() >	c1.getRank()){
-         System.out.println(player1.getPlayerName() + " won that hand.\n----------");
 		   player1.take(c1);
-         keyboard.nextLine();
+         c = p1;
       }
       else if(p1.getRank() < c1.getRank()){
-         System.out.println(player1.getPlayerName() + " won that hand.\n----------");
 		   player2.take(p1);
-         keyboard.nextLine();
+         c = c1;
       }
-      else if(p1.getRank()	==	c1.getRank()){
-         System.out.println("War!\n----------");
-         keyboard.nextLine();
-		   Card p2 = player1.deal();
-			Card c2 = player2.deal();
-         Card p3 = player1.deal();
-         Card c3 = player2.deal();
-         System.out.println(player1.getPlayerName() + " played a " + p3.toString());
-         System.out.println(player2.getPlayerName() + " played a " + c3.toString() + "\n");
-         keyboard.nextLine();
-         if(p3.getRank() >	c3.getRank()){
-            System.out.println(player1.getPlayerName() + " won that hand.\n----------");
-		      player1.take(c3);
-            keyboard.nextLine();
-         }
-         else if(p3.getRank() < c3.getRank()){
-            System.out.println(player1.getPlayerName() + " won that hand.\n----------");
-		      player2.take(p3);
-            keyboard.nextLine();
-         }
+      else if(p1.getRank() == c1.getRank()){
+         c = null;
       }
+      return c;
    }
    /**
       Prints various messages based on the winner of the game.
