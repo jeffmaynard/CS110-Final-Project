@@ -15,10 +15,10 @@ public class Card{
    final static public int DIAMONDS = 4;
    //card rank fields
    final static public int ACE = 14;
-   final static public int JACK = 11;
-   final static public int QUEEN = 12;
    final static public int KING = 13;
-
+   final static public int QUEEN = 12;
+   final static public int JACK = 11;
+   //data fields
    private int suit;
    private int rank;
    
@@ -57,6 +57,7 @@ public class Card{
    */
    public String toString(){
       String suitString = "";
+      String rankString = "";
          if(suit == SPADES){
             suitString = "Spades";
          }
@@ -69,7 +70,22 @@ public class Card{
          else if(suit == DIAMONDS){
             suitString = "Diamonds";
          }
-      String cardString = (rank + " of " + suitString);
+         if(rank == ACE){
+            rankString = "Ace";
+         }
+         else if(rank == KING){
+            rankString = "King";
+         }
+         else if(rank == QUEEN){
+            rankString = "Queen";
+         }
+         else if(rank == JACK){
+            rankString = "Jack";
+         }
+         else{
+            rankString = String.valueOf(rank);
+         }
+      String cardString = (rankString + " of " + suitString);
       return cardString;
    }
    /**
